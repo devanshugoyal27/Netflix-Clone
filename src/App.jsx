@@ -21,6 +21,10 @@ function App() {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        if (window.location.pathname.startsWith("/browse/")) {
+          return;
+        }
+
         navigate("/browse");
         // ...
       } else {

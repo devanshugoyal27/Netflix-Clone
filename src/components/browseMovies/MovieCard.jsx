@@ -34,7 +34,7 @@ const MovieCard = ({ movies }) => {
       API_OPTION
     );
     const json = await data.json();
-    const trailer = json.results.filter((video) => video.type === "Trailer");
+    const trailer = json.results?.filter((video) => video.type === "Trailer");
     dispatch(addAllTrailer(trailer[0]));
     setShowTrailer(trailer[0]);
     console.log(trailer[0]);

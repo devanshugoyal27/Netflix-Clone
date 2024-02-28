@@ -80,3 +80,26 @@ body{
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
   animation: shimmer 1.5s infinite;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #363636; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle when hovered */
+}

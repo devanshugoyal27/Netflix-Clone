@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 5,
+    items: 8,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -19,26 +19,25 @@ const responsive = {
   },
 };
 
-const MoreLikeThis = ({ id }) => {
-  const [recommend, setRecommend] = useState([]);
+const SimilarMovie = ({ id }) => {
+  const [similarMovies, setSimilarMovies] = useState([]);
 
-  const getMovieRecommendations = async () => {
+  const getSimilarMovie = async () => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US`,
       API_OPTION
     );
     const json = await data.json();
-    setRecommend(json.results);
+    setSimilarMovies(json.results);
   };
 
   useEffect(() => {
-    getMovieRecommendations();
-  }, []);
+    getSimilarMovie();
+  }, [id]);
 
   return (
-    <div className="lg:w-[40vw] w-[80vw] m-auto lg:m-0">
-{ recommend.length === 0 ? <h1 className="text-center text-xl mt-5"> No Movies Available For This</h1>:
-
+    <div className="w-[90vw] text-white">
+      { similarMovies.length === 0 ? <h1 className="text-center text-2xl my-20"> No Movies Available For This</h1>:
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -46,15 +45,16 @@ const MoreLikeThis = ({ id }) => {
         swipeable={false}
         draggable={true}
         autoPlaySpeed={1000}
-        className=""
+        className="lg:h-[40vh] z-10"
       >
-        {recommend &&
-          recommend.map((movie) => (
+        {similarMovies &&
+          similarMovies.map((movie) => (
             <Link to={`/browse/${movie.id}`}>
               <img
-                src={MOVIES_POSTER + movie.poster_path}
+                src={ movie.poster_path ? MOVIES_POSTER + movie.poster_path:'https://fireteller.com.au/wp-content/uploads/2020/09/Poster_Not_Available2.jpg'}
+                key={movie.id}
                 alt="poster"
-                className="lg:w-[7vw] md:w-[18vw] md:h-[19vh] w-[32vw] lg:h-[20vh] h-[28vh] m-4 rounded-lg cursor-pointer hover:scale-110 duration-300"
+                className="md:w-[20vw] lg:w-[10vw] w-[35vw] cursor-pointer rounded-md hover:scale-110 duration-300 hover:border-2"
               />
             </Link>
           ))}
@@ -63,4 +63,4 @@ const MoreLikeThis = ({ id }) => {
   );
 };
 
-export default MoreLikeThis;
+export default SimilarMovie;

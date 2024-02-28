@@ -13,7 +13,7 @@ const MoviesContainer = () => {
       <div className="absolute top-[66vh]  w-full overflow-hidden">
         <MoviesList title="Now Playing" movies={movies} />
       </div>
-      <div className="lg:mt-48 md:mt-[8vh] mt-[12vh]">
+      <div className="lg:mt-32">
         <MoviesList title="Popular" movies={PopularMovies} />
       </div>
       <MoviesList title="Upcoming Movies" movies={upcomingMovies} />
