@@ -164,20 +164,15 @@ const MovieInfo = () => {
                   />
                 </Routes>
               </div>
-              {showMovieTrailer && (
-                <ShowTrailer
-                  movieTrailer={movieTrailer}
-                  setShowMovieTrailer={setShowMovieTrailer}
-                />
-              )}
             </div>
 
             {/* cast credits  */}
             <div className="lg:px-14 lg:mt-8 mt-5 px-4 ">
-              <h1 className="text-white lg:text-2xl font-bold my-5 lg:my-0 border-b-[1px] pb-3 border-gray-600 text-lg">Top Billed Cast</h1>
+              <h1 className="text-white lg:text-2xl font-bold my-5 lg:my-0 border-b-[1px] pb-3 border-gray-600 text-lg">
+                Top Billed Cast
+              </h1>
               <CastCreadits id={id} />
             </div>
-
 
             {/* similar movies  */}
             <div className="lg:px-14 lg:mt-8 mt-5 px-4 mb-20">
@@ -186,12 +181,18 @@ const MovieInfo = () => {
               </h1>
               <SimilarMovie id={id} />
             </div>
-            
           </div>
         ) : (
           <ShimmerUi />
         )}
       </div>
+
+      {showMovieTrailer && (
+        <ShowTrailer
+          movieTrailer={movieTrailer}
+          setShowMovieTrailer={setShowMovieTrailer}
+        />
+      )}
     </>
   );
 };
