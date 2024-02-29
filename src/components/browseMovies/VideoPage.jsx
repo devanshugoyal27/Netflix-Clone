@@ -22,7 +22,7 @@ const VideoPage = ({ title, overview, id }) => {
 
   useEffect(() => {
     getMovieTrailer();
-  }, []);
+  }, [id]);
 
   return (
     <div className="">
