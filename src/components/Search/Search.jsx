@@ -54,6 +54,7 @@ const Search = ({ setIsSearchOpen }) => {
                     to={`/browse/${movie.id}`}
                     key={movie.id}
                     className="border-[1px] rounded-md lg:w-[13vw] w-[36vw] md:w-[24vw] p-2 mx-auto"
+                    onClick={() => setIsSearchOpen(false)}
                   >
                     <img
                       src={
