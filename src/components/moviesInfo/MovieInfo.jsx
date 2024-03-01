@@ -12,6 +12,7 @@ import ShimmerUi from "../shimmerUi/ShimmerUi";
 import { FaStar } from "react-icons/fa";
 import SimilarMovie from "./SimilarMovie";
 import CastCreadits from "./CastCreadits";
+import Footer from "../footer/Footer";
 
 const MovieInfo = () => {
   const [movies, setMovies] = useState("");
@@ -180,6 +181,9 @@ const MovieInfo = () => {
                 Similar Movies
               </h1>
               <SimilarMovie id={id} />
+            </div>
+            <div>
+              <Footer/>
             </div>
           </div>
         ) : (

@@ -39,14 +39,14 @@ const MovieHeader = () => {
               : "hidden"
           }`}
         >
-          <Link to="/browse" className="cursor-pointer">
+          <Link to="/browse" className="cursor-pointer hover:text-gray-400 duration-300">
             Home
           </Link>
-          <p className="cursor-pointer whitespace-nowrap">Tv Shows</p>
-          <p className="cursor-pointer whitespace-nowrap">Movies</p>
-          <p className="cursor-pointer whitespace-nowrap">New & Popular</p>
-          <p className="cursor-pointer whitespace-nowrap">MyList</p>
-          <p className="cursor-pointer whitespace-nowrap md:hidden lg:block">
+          <p className="cursor-pointer whitespace-nowrap hover:text-gray-400 duration-300">Tv Shows</p>
+          <p className="cursor-pointer whitespace-nowrap hover:text-gray-400 duration-300">Movies</p>
+          <p className="cursor-pointer whitespace-nowrap hover:text-gray-400 duration-300">New & Popular</p>
+          <p className="cursor-pointer whitespace-nowrap hover:text-gray-400 duration-300">MyList</p>
+          <p className="cursor-pointer whitespace-nowrap md:hidden lg:block hover:text-gray-400 duration-300">
             Browse By Languages
           </p>
           {isMobileMenuOpen && (

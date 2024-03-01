@@ -103,3 +103,10 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the scrollbar handle when hovered */
 }
+
+
+.custom button:hover {
+  color: #7c7b7b;
+  transition: 0.3s;
+  
+}

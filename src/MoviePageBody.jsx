@@ -6,6 +6,7 @@ import usePopularMovies from "./hooks/usePopularMovies";
 import MoviesContainer from "./components/browseMovies/MoviesContainer";
 import useUpcomingMovies from "./hooks/useUpcomingMovies";
 import useTvSeries from "./hooks/useTvSeries";
+import Footer from "./components/footer/Footer";
 
 const MoviePageBody = () => {
   useNowPlayingMovies();
@@ -18,6 +19,7 @@ const MoviePageBody = () => {
       <MovieHeader />
       <MainPage/>
       <MoviesContainer/>
+      <Footer/>
     </div>
   );
 };
