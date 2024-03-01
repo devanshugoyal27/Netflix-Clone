@@ -9,11 +9,11 @@ const MainPage = () => {
   const mainMovie = movies[14];
   
 
-  const { original_title, overview,id } = mainMovie;
+  const { title, overview,id } = mainMovie;
 
   return (
     <div className="bg-gradient-to-t from-black h-[100vh]  ">
-      <VideoPage title = {original_title} overview = {overview} id={id}/>
+      <VideoPage title = {title} overview = {overview} id={id}/>
   
     </div>
   );

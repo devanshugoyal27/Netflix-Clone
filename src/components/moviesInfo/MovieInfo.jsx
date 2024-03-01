@@ -83,8 +83,8 @@ const MovieInfo = () => {
 
               {/* movie details  */}
               <div className="col-span-3">
-                <h1 className="md:text-6xl text-4xl text-center md:my-10 lg:my-0 lg:text-left font-bold ">
-                  {movies.original_title}
+                <h1 className="md:w-[50vw] md:text-6xl text-4xl text-center md:my-10 lg:my-0 lg:text-left font-bold ">
+                  {movies.title}
                 </h1>
                 <ul className="flex lg:gap-8 gap-5 px-3 lg:px-0  text-center justify-center lg:justify-start text-sm list-disc mt-5">
                   <span>{movies.release_date} </span>

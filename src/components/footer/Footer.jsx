@@ -10,7 +10,7 @@ const Footer = () => {
         <button>Legal Notices</button>
       
       </div>
-      <div className="flex flex-col gap-2 custom hidden md:flex">
+      <div className=" flex-col gap-2 custom hidden md:flex">
         <button>Help Centre</button>
         <button>Jobs</button>
         <button>Cookies Prefrences</button>
