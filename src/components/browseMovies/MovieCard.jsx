@@ -37,7 +37,7 @@ const MovieCard = ({ movies }) => {
     const trailer = json.results?.filter((video) => video.type === "Trailer");
     dispatch(addAllTrailer(trailer[0]));
     setShowTrailer(trailer[0]);
-    console.log(trailer[0]);
+   
   };
 
   useEffect(() => {

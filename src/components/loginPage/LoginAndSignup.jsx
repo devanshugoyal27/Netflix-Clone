@@ -3,11 +3,13 @@ import { validateData } from "../formValidation/Validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,updateProfile 
+  onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../redux/userSlice";
+import { lang } from "../multiLanguage/lang";
 // import { useNavigate } from "react-router-dom";
 
 const LoginAndSignup = () => {
@@ -20,6 +22,8 @@ const LoginAndSignup = () => {
 
   const dispatch = useDispatch();
   // const navigate = useNavigate();
+
+  const langkey = useSelector((store) => store.multilang.lang);
 
   const handleclick = () => {
     const message = validateData(email.current.value, password.current.value);
@@ -68,9 +72,6 @@ const LoginAndSignup = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // console.log("sign in ", user);
-          // navigate("/browse");
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -81,9 +82,9 @@ const LoginAndSignup = () => {
   };
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white">
-      <div className="lg:w-[28vw] md:w-[50vw] bg-black lg:h-[50vh] md:h-[40vh] bg-opacity-70 rounded-md px-14 py-8">
+      <div className="lg:w-[28vw] md:w-[50vw] bg-black lg:h-[60vh] md:h-[50vh] bg-opacity-70 rounded-md px-14 py-8">
         <h1 className="text-2xl font-bold mb-6">
-          {isSignin ? "Sign In" : "Sign Up"}
+          {isSignin ? lang[langkey].title : lang[langkey].title2}
         </h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="flex flex-col gap-5">
@@ -91,7 +92,7 @@ const LoginAndSignup = () => {
               <input
                 type="text"
                 ref={name}
-                placeholder="Name"
+                placeholder={lang[langkey].namePlaceholder}
                 className="p-2 bg-transparent border-[1px] border-gray-500 rounded-sm"
               />
             )}
@@ -99,13 +100,13 @@ const LoginAndSignup = () => {
             <input
               type="text"
               ref={email}
-              placeholder="Email"
+              placeholder={lang[langkey].emailPlaceholder}
               className="p-2 bg-transparent border-[1px] border-gray-500 rounded-sm"
             />
             <input
               type="password"
               ref={password}
-              placeholder="password"
+              placeholder={lang[langkey].passPlaceholder}
               className="p-2 bg-transparent border-[1px] border-gray-500 rounded-sm"
             />
             <p className="text-red-500">{errmessage}</p>
@@ -114,7 +115,7 @@ const LoginAndSignup = () => {
               className="py-2 px-4 bg-red-600 text-white font-bold rounded-lg "
               onClick={handleclick}
             >
-              {isSignin ? "Sign in" : "Sign up"}
+              {isSignin ? lang[langkey].title : lang[langkey].title2}
             </button>
           </div>
         </form>
@@ -122,9 +123,7 @@ const LoginAndSignup = () => {
           className="mt-4 cursor-pointer"
           onClick={() => setIsSignin(!isSignin)}
         >
-          {isSignin
-            ? "New to Netflix? Sign up now."
-            : "Already have an account ? sign in now."}
+          {isSignin ? lang[langkey].loginText : lang[langkey].signupText}
         </p>
       </div>
     </div>

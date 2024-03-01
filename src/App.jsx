@@ -1,18 +1,16 @@
-import { Routes,Route, useNavigate} from 'react-router-dom'
-import './App.css'
-import Body from './components/Body'
-import MoviePageBody from './MoviePageBody'
-import { useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './components/firebase/firebase';
-import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from './components/redux/userSlice';
-import MovieInfo from './components/moviesInfo/MovieInfo';
-
-
+import { Routes, Route, useNavigate } from "react-router-dom";
+import "./App.css";
+import Body from "./components/Body";
+import MoviePageBody from "./MoviePageBody";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./components/firebase/firebase";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "./components/redux/userSlice";
+import MovieInfo from "./components/moviesInfo/MovieInfo";
+import ErrorPage from "./components/errorPage/ErrorPage";
 
 function App() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,19 +34,16 @@ function App() {
   }, []);
 
   return (
-    <> 
-    
-    <Routes>
-      <Route path='/' element = {<Body/>}/>
-      
-      <Route path='/browse' element = {<MoviePageBody/>}/>
-      <Route path='/browse/:id/*' element = {<MovieInfo/>}/>
-      
-    </Routes>
-     
-  
+    <>
+      <Routes>
+        <Route path="/" element={<Body />} />
+
+        <Route path="/browse" element={<MoviePageBody />} />
+        <Route path="/browse/:id/*" element={<MovieInfo />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
